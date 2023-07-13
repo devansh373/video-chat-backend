@@ -7,19 +7,21 @@ const io = require('socket.io')(server, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
-    }
+    },
     })
-app.use(cors());
-const PORT = 5000 || process.env.PORT ;
 
-app.get('/',(req,res)=>{
-    res.send("Server running...")
-    // res.setHeader('Content-Type', 'text/html');
-})
+// let idToSend={};
+// let id='';
+app.use(cors());
+const PORT =  5000;
+
+
 
 
 
 io.on('connection',(socket)=>{
+    // id=socket.id;
+    // idToSend.id=socket.id;
     socket.emit("me",socket.id);
     
     socket.on('disconnect',()=>{
@@ -33,5 +35,19 @@ io.on('connection',(socket)=>{
         io.to(data.to).emit("callAccepted",data.signal);
     })
 })
+// app.get('/',(req,res)=>{
+//     res.send()
+// })
 
+
+app.get('/:id',(req,res)=>{
+    // console.log(req.params.id)
+    // res.send()
+    res.send(req.params)
+})
+
+// app.get(`${idToSend.id}`,(req,res)=>{
+//     res.send(idToSend)
+//     console.log(idToSend)
+// })
 server.listen(PORT,()=>console.log(`server listening on port ${PORT}`));
