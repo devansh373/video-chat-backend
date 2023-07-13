@@ -35,9 +35,9 @@ io.on('connection',(socket)=>{
         io.to(data.to).emit("callAccepted",data.signal);
     })
 })
-// app.get('/',(req,res)=>{
-//     res.send()
-// })
+app.get('/',(req,res)=>{
+    res.send("server running...")
+})
 
 
 app.get('/:id',(req,res)=>{
