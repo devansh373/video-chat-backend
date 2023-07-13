@@ -13,7 +13,7 @@ const io = require('socket.io')(server, {
 // let idToSend={};
 // let id='';
 app.use(cors());
-const PORT =  5000;
+const PORT = process.env.PORT|| 5000;
 
 
 
