@@ -40,11 +40,11 @@ app.get('/',(req,res)=>{
 })
 
 
-app.get('/:id',(req,res)=>{
-    // console.log(req.params.id)
-    // res.send()
-    res.send(req.params)
-})
+// app.get('/:id',(req,res)=>{
+//     // console.log(req.params.id)
+//     // res.send()
+//     res.send(req.params)
+// })
 
 // app.get(`${idToSend.id}`,(req,res)=>{
 //     res.send(idToSend)
